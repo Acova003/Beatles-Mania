@@ -1,5 +1,9 @@
-require "beatles_mania/version"
+require 'rest-client'
+require 'pry'
+require 'colorize'
+require 'json'
+require 'uri'
 
-module BeatlesMania
-  # Your code goes here...
-end
+require_relative './beatles_mania/version'
+require_relative './beatles_mania/cli'
+#require_relative './beatles_mania/scraper'
