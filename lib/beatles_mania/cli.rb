@@ -1,16 +1,26 @@
 class BeatlesMania::CLI
   def start
+    welcome_banner
+    list_songs
+    menu
+  end
+
+  def welcome_banner
     puts ""
     puts ""
     puts "                        Welcome ".blue + "to " + "Beatles Mania!".red
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts ""
     puts ""
-    menu
+  end
+
+  def list_songs
+    puts 'Something or Because'
+    #scrape
   end
 
   def menu
-    #scrape
+    puts 'Enter the song that you would like to know more about: (1-50)'
     input
   end
 
@@ -29,14 +39,14 @@ class BeatlesMania::CLI
 
   def continue?
     puts ""
-    puts "To choose another song, type '1'. To exit, type '2'"
-    user_input = gets.strip
-    if user_input == '1'
+    puts "Would you like to choose another song? (Y/N)"
+    user_input = gets.chomp.upcase
+    if user_input == 'Y'
       menu
-    elsif user_input == '2'
+    elsif user_input == 'N'
       goodbye
     else
-      puts "Invalid input. Please type '1' or '2'".red
+      puts "Invalid input. Please type 'Y' or 'N'".red
       continue?
     end
   end
