@@ -6,4 +6,4 @@ require 'uri'
 
 require_relative './beatles_mania/version'
 require_relative './beatles_mania/cli'
-#require_relative './beatles_mania/scraper'
+require_relative './beatles_mania/song'

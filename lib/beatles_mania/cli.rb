@@ -15,24 +15,27 @@ class BeatlesMania::CLI
   end
 
   def list_songs
+    # here doc - http://ultimateclassicrock.com/beatles-top-50/
     puts 'Something or Because'
+    @songs = BeatlesMania::Song.top_songs
+    @songs.each.with_index(1) do |song, i|
+      puts "#{i}. #{song}"
+    end 
     #scrape
   end
 
   def menu
-    puts 'Enter the song that you would like to know more about: (1-50)'
-    input
-  end
-
-  def input
+    puts "Which top 50 Beatles song would you like to learn more about? (1-50)"
     puts '>'
-    @user_input = gets.strip
-    if @user_input.to_i.between?(1,50)
+    user_input = gets.strip.to_i
+    #binding.pry
+    if user_input.between?(1,50)
+      puts @songs[user_input-1]
       #binding.pry
       #BeatlesMania::Scraper.get_lyrics(@user_input)
     else
-      puts "Invalid input. Please choose a number between 1-10".red
-      menu
+      puts "Invalid input. Please choose a number (1-50)".red
+      input
     end
     continue?
   end
@@ -46,7 +49,8 @@ class BeatlesMania::CLI
     elsif user_input == 'N'
       goodbye
     else
-      puts "Invalid input. Please type 'Y' or 'N'".red
+      puts ""
+      puts "Invalid input".red
       continue?
     end
   end
