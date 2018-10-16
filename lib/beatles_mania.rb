@@ -1,8 +1,8 @@
-require 'rest-client'
+require 'open-uri'
+require 'nokogiri'
 require 'pry'
 require 'colorize'
 require 'json'
-require 'uri'
 
 require_relative './beatles_mania/version'
 require_relative './beatles_mania/cli'
