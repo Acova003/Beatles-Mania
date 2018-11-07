@@ -17,10 +17,8 @@ class BeatlesMania::CLI
   def list_songs
     # here doc - http://ultimateclassicrock.com/beatles-top-50/
     puts 'Something or Because'
-    @songs = BeatlesMania::Song.top_songs
-    @songs.each.with_index(1) do |song, i|
-      puts "#{i}. #{song}"
-    end 
+    @songs = BeatlesMania::Scraper.scrape_songs
+    puts @songs
     #scrape
   end
 
@@ -29,8 +27,8 @@ class BeatlesMania::CLI
     puts '>'
     user_input = gets.strip.to_i
     #binding.pry
-    if user_input.between?(1,50)
-      puts @songs[user_input-1]
+    if user_input.between?(1,10)
+      puts @songs#[user_input-1]
       #binding.pry
       #BeatlesMania::Scraper.get_lyrics(@user_input)
     else
