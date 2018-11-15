@@ -1,16 +1,19 @@
 class BeatlesMania::Song
-  attr_accessor :title, :description, :url
+  attr_accessor :title, :description
 
-  ALL = []
+  @@all = []
 
-  def initialize(title= nil, description=nil, url=nil)
+  def initialize(title= nil, description=nil)
     @title = title
     @description = description
-    @url = url
-    ALL << self
   end
 
   def self.all
-    ALL
+    @@all
   end
+
+  def save
+    @@all << self
+  end
+  #binding.pry
 end
