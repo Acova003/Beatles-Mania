@@ -19,14 +19,13 @@ class BeatlesMania::CLI
     BeatlesMania::Scraper.print_songs
   end
 
-
   def menu
-    puts "Which top 50 Beatles song would you like to learn more about? (1-50)"
+    puts "Which top 25 Beatles song would you like to learn more about? (1-25)"
     puts '>'
     user_input = gets.strip.to_i
 
-    if user_input.between?(1,50)
-      song_choice = BeatlesMania::Song.all[50 - user_input]
+    if user_input.between?(1,25)
+      song_choice = BeatlesMania::Song.all[25 - user_input]
       puts ""
       puts "Title: "
       puts song_choice.title
@@ -34,7 +33,7 @@ class BeatlesMania::CLI
       puts "Description: "
       puts song_choice.description
     else
-      puts "Invalid input. Please choose a number (1-50)".red
+      puts "Invalid input. Please choose a number (1-25)".red
       input
     end
     continue?

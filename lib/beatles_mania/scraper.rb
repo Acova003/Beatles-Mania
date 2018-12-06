@@ -9,8 +9,8 @@ class BeatlesMania::Scraper
 
     list = songs.map do |post|
       song = BeatlesMania::Song.new
-      if song.title != 'The 50 best pop songs '
-        song.title = post.search('h3').text.strip.gsub(/‘/, '')
+      if song.title != 'The 50 best pop songs'
+        song.title = post.search('h3').text.strip.gsub(/‘,'/, "")
       end
       #binding.pry
 
@@ -20,10 +20,10 @@ class BeatlesMania::Scraper
   end
 
   def self.print_songs
-    #binding.pry
-    #self.make_songs
-    BeatlesMania::Song.all.reverse.each.with_index(1) do |song, index|
+    BeatlesMania::Song.all.reverse.each.with_index do |song, index|
+      if index <= 25 && !song.title.include?('The 50 best pop songs')
         puts "#{ index }. #{ song.title }"
+      end
     end
   end
 

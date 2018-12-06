@@ -15,5 +15,4 @@ class BeatlesMania::Song
   def save
     @@all << self
   end
-  #binding.pry
 end
