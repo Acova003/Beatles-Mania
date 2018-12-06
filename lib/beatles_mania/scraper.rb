@@ -12,9 +12,8 @@ class BeatlesMania::Scraper
       if song.title != 'The 50 best pop songs'
         song.title = post.search('h3').text.strip.gsub(/‘,'/, "")
       end
-      #binding.pry
-
-      song.description = post.search('p').text.strip
+      #deletes contributor name at the end of description
+      song.description = post.search('p').text.split(' ')[0...-2].join(' ')
       song.save
     end
   end

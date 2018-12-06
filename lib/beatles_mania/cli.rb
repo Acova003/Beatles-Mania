@@ -25,7 +25,8 @@ class BeatlesMania::CLI
     user_input = gets.strip.to_i
 
     if user_input.between?(1,25)
-      song_choice = BeatlesMania::Song.all[25 - user_input]
+      #excludes first title 'top 50 pop songs'
+      song_choice = BeatlesMania::Song.all[49 - user_input]
       puts ""
       puts "Title: "
       puts song_choice.title
@@ -34,7 +35,7 @@ class BeatlesMania::CLI
       puts song_choice.description
     else
       puts "Invalid input. Please choose a number (1-25)".red
-      input
+      menu
     end
     continue?
   end
