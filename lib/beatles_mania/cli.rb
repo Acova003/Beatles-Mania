@@ -35,7 +35,7 @@ class BeatlesMania::CLI
       puts song_choice.description
     else
       puts "Invalid input. Please choose a number (1-25)".red
-      menu
+      return menu
     end
     continue?
   end
@@ -50,7 +50,7 @@ class BeatlesMania::CLI
       goodbye
     else
       puts ""
-      puts "Invalid input".red
+      puts "You choose #{user_input}. Invalid input".red
       continue?
     end
   end
